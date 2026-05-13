@@ -732,7 +732,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     </div>
     <div class="projects-grid" id="projects-grid">
       <div class="project-card reveal">
-        <div class="project-image" >&#127947;</div>
+        <div class="project-image" ></div>
         <div class="project-info">
           <div class="project-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span></div>
           <h3>Gym Routine Manager</h3>
@@ -743,7 +743,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-image" style="background:linear-gradient(135deg, #1e1e30, #2b1f3a);">&#128279;</div>
+        <div class="project-image" style="background:linear-gradient(135deg, #1e1e30, #2b1f3a);"></div>
         <div class="project-info">
           <div class="project-tags"><span class="tag">Flask</span><span class="tag">URL Shortener</span></div>
           <h3>URL Shortener</h3>
@@ -991,7 +991,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
       card.className = 'project-card reveal';
       const tagsHtml = p.tags.split(',').map(t=>`<span class="tag">${t.trim()}</span>`).join('');
       card.innerHTML = `
-        <div class="project-image" >${p.img||'&#127947;'}</div>
+        <div class="project-image" >${p.img||''}</div>
         <div class="project-info">
           <div class="project-tags">${tagsHtml}</div>
           <h3>${p.title}</h3>
