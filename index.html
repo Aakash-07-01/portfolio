@@ -178,25 +178,24 @@ nav > button#theme-toggle { margin-left: 1rem; }
     margin-bottom: 2.5rem;
   }
   .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-.hero-social {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  justify-content: center;
-}
-.hero-social a img {
-  width: 28px;
-  height: 28px;
-  transition: transform 0.2s;
-  filter: invert(1) brightness(1.5);
-}
-.hero-social a img:hover {
-  transform: scale(1.1);
-}
-.light .hero-social a img {
-  filter: none;
-}
-
+  .hero-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  .hero-social a img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s;
+    filter: invert(1) brightness(1.5);
+  }
+  .hero-social a img:hover {
+    transform: scale(1.1);
+  }
+  .light .hero-social a img {
+    filter: none;
+  }
 
   /* Buttons */
   .btn {
@@ -658,13 +657,13 @@ nav > button#theme-toggle { margin-left: 1rem; }
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
-      <p class="hero-greeting">> Hello, I'm</p>
+      <p class="hero-greeting">&gt; Hello, I'm</p>
       <h1 class="hero-name">Aakash B</h1>
       <h2 class="subheading">CSE - AI &amp; ML Student</h2>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">View My Work &rarr;</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
-<a href="https://drive.google.com/file/d/1WTYXpv1P69PYyvwGM_w2i_-ZBXhXNqRP/view?usp=sharing" class="btn btn-outline" target="_blank">Resume</a>
+	<a href="https://drive.google.com/file/d/1WTYXpv1P69PYyvwGM_w2i_-ZBXhXNqRP/view?usp=sharing" class="btn btn-outline" target="_blank">Resume</a>
       </div>
       <div class="hero-social">
         <a href="https://www.linkedin.com/in/aakash2608/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:24px;height:24px;"></a>
@@ -684,7 +683,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
       <div class="about-text reveal">
         <p>Computer Science (AIML) student with strong skills in Python, Java, and SQL, seeking an opportunity to apply analytical and problem‑solving abilities to develop efficient solutions and contribute to data‑driven decision making.</p>
         <p>When I'm not coding, you'll find me exploring new design trends, contributing to open-source, or experimenting with creative technologies like WebGL and generative art.</p>
-              </div>
+                </div>
       <div class="about-visual reveal">
         <div class="orb"></div>
       </div>
@@ -720,6 +719,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
         <div class="certification-card"><h3>Design Thinking for Innovation</h3><p>Coursera</p></div>
         <div class="certification-card"><h3>Introduction to DataLab</h3><p>Datacamp</p></div>
         <div class="certification-card"><h3>Oracle Certified Foundations Associate</h3><p>Oracle</p></div>
+    </div>
   </div>
 </section>
 
@@ -765,7 +765,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     <div class="contact-grid">
       <div class="reveal">
         <p style="color:var(--muted);line-height:1.8;font-size:1.05rem;margin-bottom:2rem;">
-          Have a project in mind? I'd love to hear about it. Whether it's a web app, a creative experiment, or something entirely new — let's talk.
+          Have a project in mind? I'd love to hear about it. Whether it's a web app, a creative experiment, or something entirely new — let’s talk.
         </p>
         <div class="social-links" style="justify-content:flex-start;">
           <a href="#" title="GitHub">&#9906;</a>
@@ -791,7 +791,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
 </section>
 
 <footer>
-  <p>&copy; 2026 Nova. Designed & built with passion.</p>
+  <p>&copy; 2026 Nova. Designed &amp; built with passion.</p>
 </footer>
 
 <script>
@@ -977,94 +977,94 @@ nav > button#theme-toggle { margin-left: 1rem; }
       document.body.classList.toggle('light');
     });
   }
-// ===== Edit Mode (password protected) =====
-const editPassword = "AK45ak45";
-let editEnabled = false;
+  // ===== Edit Mode (password protected) =====
+  const editPassword = "AK45ak45";
+  let editEnabled = false;
 
-function toggleEditMode() {
-  if (!editEnabled) {
-    const pw = prompt("Enter edit password:");
-    if (pw !== editPassword) {
-      alert("Incorrect password.");
-      return;
+  function toggleEditMode() {
+    if (!editEnabled) {
+      const pw = prompt("Enter edit password:");
+      if (pw !== editPassword) {
+        alert("Incorrect password.");
+        return;
+      }
+      editEnabled = true;
+      document.body.classList.add('edit-mode');
+      // Show admin panel
+      const adminPanel = document.getElementById('admin-panel');
+      if (adminPanel) adminPanel.style.display = 'flex';
+      // Make sections editable (for quick edits)
+      const sections = document.querySelectorAll('#about .about-text, #skills, #certifications, #projects, #contact .contact-grid');
+      sections.forEach(el => el.setAttribute('contenteditable', 'true'));
+      alert('Edit mode enabled. Use the admin tools to add items.');
+    } else {
+      editEnabled = false;
+      document.body.classList.remove('edit-mode');
+      const adminPanel = document.getElementById('admin-panel');
+      if (adminPanel) adminPanel.style.display = 'none';
+      const editableEls = document.querySelectorAll('[contenteditable]');
+      editableEls.forEach(el => el.removeAttribute('contenteditable'));
+      alert('Edit mode disabled.');
     }
-    editEnabled = true;
-    document.body.classList.add('edit-mode');
-    // Show admin panel
-    const adminPanel = document.getElementById('admin-panel');
-    if (adminPanel) adminPanel.style.display = 'flex';
-    // Make sections editable (for quick edits)
-    const sections = document.querySelectorAll('#about .about-text, #skills, #certifications, #projects, #contact .contact-grid');
-    sections.forEach(el => el.setAttribute('contenteditable', 'true'));
-    alert('Edit mode enabled. Use the admin tools to add items.');
-  } else {
-    editEnabled = false;
-    document.body.classList.remove('edit-mode');
-    const adminPanel = document.getElementById('admin-panel');
-    if (adminPanel) adminPanel.style.display = 'none';
-    const editableEls = document.querySelectorAll('[contenteditable]');
-    editableEls.forEach(el => el.removeAttribute('contenteditable'));
-    alert('Edit mode disabled.');
   }
-}
 
-// Hidden edit button
-const editBtn = document.createElement('button');
-editBtn.id = 'edit-toggle';
-editBtn.textContent = '✎';
-editBtn.title = 'Edit Portfolio';
-editBtn.style.position = 'fixed';
-editBtn.style.bottom = '1rem';
-editBtn.style.right = '1rem';
-editBtn.style.opacity = '0.2';
-editBtn.style.zIndex = '1000';
-editBtn.style.cursor = 'pointer';
-editBtn.style.background = 'var(--surface)';
-editBtn.style.border = '1px solid var(--muted)';
-editBtn.style.borderRadius = '6px';
-editBtn.style.padding = '0.3rem 0.5rem';
-editBtn.addEventListener('click', toggleEditMode);
-document.body.appendChild(editBtn);
+  // Hidden edit button
+  const editBtn = document.createElement('button');
+  editBtn.id = 'edit-toggle';
+  editBtn.textContent = '✎';
+  editBtn.title = 'Edit Portfolio';
+  editBtn.style.position = 'fixed';
+  editBtn.style.bottom = '1rem';
+  editBtn.style.right = '1rem';
+  editBtn.style.opacity = '0.2';
+  editBtn.style.zIndex = '1000';
+  editBtn.style.cursor = 'pointer';
+  editBtn.style.background = 'var(--surface)';
+  editBtn.style.border = '1px solid var(--muted)';
+  editBtn.style.borderRadius = '6px';
+  editBtn.style.padding = '0.3rem 0.5rem';
+  editBtn.addEventListener('click', toggleEditMode);
+  document.body.appendChild(editBtn);
 
-// Load persisted data (skills, certifications, projects)
-function loadPersistedData(){
-  // Skills
-  const skillContainer = document.getElementById('skills-grid');
-  const storedSkills = JSON.parse(localStorage.getItem('skills')||'[]');
-  storedSkills.forEach(s=>{
-    const card = document.createElement('div');
-    card.className = 'skill-card';
-    card.innerHTML = `<div class="skill-icon">${s.icon||'&#128187;'}</div><div class="skill-name">${s.name}</div>`;
-    skillContainer.appendChild(card);
-  });
-  // Certifications
-  const certContainer = document.getElementById('certifications-grid');
-  const storedCerts = JSON.parse(localStorage.getItem('certifications')||'[]');
-  storedCerts.forEach(text=>{
-    const div = document.createElement('div');
-    div.className = 'certification-card';
-    div.textContent = text;
-    certContainer.appendChild(div);
-  });
-  // Projects
-  const projContainer = document.getElementById('projects-grid');
-  const storedProjects = JSON.parse(localStorage.getItem('projects')||'[]');
-  storedProjects.forEach(p=>{
-    const card = document.createElement('div');
-    card.className = 'project-card reveal';
-    const tagsHtml = p.tags.split(',').map(t=>`<span class="tag">${t.trim()}</span>`).join('');
-    card.innerHTML = `
-      <div class="project-image" style="background:linear-gradient(135deg, #2a2a3e, #1a2b4e);">${p.img||'&#127947;'}</div>
-      <div class="project-info">
-        <div class="project-tags">${tagsHtml}</div>
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <div class="project-links"><a href="#">Source &#8599;</a></div>
-      </div>`;
-    projContainer.appendChild(card);
-  });
-}
-document.addEventListener('DOMContentLoaded', loadPersistedData);
+  // Load persisted data (skills, certifications, projects)
+  function loadPersistedData(){
+    // Skills
+    const skillContainer = document.getElementById('skills-grid');
+    const storedSkills = JSON.parse(localStorage.getItem('skills')||'[]');
+    storedSkills.forEach(s=>{
+      const card = document.createElement('div');
+      card.className = 'skill-card';
+      card.innerHTML = `<div class="skill-icon">${s.icon||'&#128187;'}</div><div class="skill-name">${s.name}</div>`;
+      skillContainer.appendChild(card);
+    });
+    // Certifications
+    const certContainer = document.getElementById('certifications-grid');
+    const storedCerts = JSON.parse(localStorage.getItem('certifications')||'[]');
+    storedCerts.forEach(text=>{
+      const div = document.createElement('div');
+      div.className = 'certification-card';
+      div.textContent = text;
+      certContainer.appendChild(div);
+    });
+    // Projects
+    const projContainer = document.getElementById('projects-grid');
+    const storedProjects = JSON.parse(localStorage.getItem('projects')||'[]');
+    storedProjects.forEach(p=>{
+      const card = document.createElement('div');
+      card.className = 'project-card reveal';
+      const tagsHtml = p.tags.split(',').map(t=>`<span class="tag">${t.trim()}</span>`).join('');
+      card.innerHTML = `
+        <div class="project-image" style="background:linear-gradient(135deg, #2a2a3e, #1a2b4e);">${p.img||'&#127947;'}</div>
+        <div class="project-info">
+          <div class="project-tags">${tagsHtml}</div>
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="project-links"><a href="#">Source &#8599;</a></div>
+        </div>`;
+      projContainer.appendChild(card);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', loadPersistedData);
 </script>
 
 </body>
