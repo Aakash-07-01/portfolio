@@ -388,13 +388,14 @@ nav > button#theme-toggle { margin-left: 1rem; }
     border: 1px solid rgba(168, 85, 247, 0.08);
     border-radius: 24px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
   .project-card:hover {
-    border-color: rgba(168, 85, 247, 0.25);
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(168, 85, 247, 0.05);
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 20px rgba(168, 85, 247, 0.1);
   }
   .project-image {
     height: 220px;
@@ -405,6 +406,12 @@ nav > button#theme-toggle { margin-left: 1rem; }
     align-items: center;
     justify-content: center;
     font-size: 4rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover .project-image {
+    transform: scale(1.05);
   }
   .project-image::after {
     content: '';
@@ -645,13 +652,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     <span></span><span></span><span></span>
   </div>
 </nav>
-  <div id="admin-panel">
-  <button id="add-skill" title="Add Skill">Add Skill</button>
-  <button id="add-cert" title="Add Certification">Add Cert</button>
-  <button id="add-project" title="Add Project">Add Project</button>
-  <button id="edit-about" title="Edit About">Edit About</button>
-</div>
-
+  
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
@@ -961,57 +962,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     }
   });
 
-    // ===== Edit Mode (password protected) =====
-  const editPassword = "AK45ak45";
-  let editEnabled = false;
-
-  function toggleEditMode() {
-    if (!editEnabled) {
-      const pw = prompt("Enter edit password:");
-      if (pw !== editPassword) {
-        alert("Incorrect password.");
-        return;
-      }
-      editEnabled = true;
-      document.body.classList.add('edit-mode');
-      // Show admin panel
-      const adminPanel = document.getElementById('admin-panel');
-      if (adminPanel) adminPanel.style.display = 'flex';
-      // Make sections editable (for quick edits)
-      const sections = document.querySelectorAll('#about .about-text, #skills, #certifications, #projects, #contact .contact-grid');
-      sections.forEach(el => el.setAttribute('contenteditable', 'true'));
-      alert('Edit mode enabled. Use the admin tools to add items.');
-    } else {
-      editEnabled = false;
-      document.body.classList.remove('edit-mode');
-      const adminPanel = document.getElementById('admin-panel');
-      if (adminPanel) adminPanel.style.display = 'none';
-      const editableEls = document.querySelectorAll('[contenteditable]');
-      editableEls.forEach(el => el.removeAttribute('contenteditable'));
-      alert('Edit mode disabled.');
-    }
-  }
-
-  // Hidden edit button
-  const editBtn = document.createElement('button');
-  editBtn.id = 'edit-toggle';
-  editBtn.textContent = '✎';
-  editBtn.title = 'Edit Portfolio';
-  editBtn.style.position = 'fixed';
-  editBtn.style.bottom = '1rem';
-  editBtn.style.right = '1rem';
-  editBtn.style.opacity = '0.2';
-  editBtn.style.zIndex = '1000';
-  editBtn.style.cursor = 'pointer';
-  editBtn.style.background = 'var(--surface)';
-  editBtn.style.border = '1px solid var(--muted)';
-  editBtn.style.borderRadius = '6px';
-  editBtn.style.padding = '0.3rem 0.5rem';
-  editBtn.addEventListener('click', toggleEditMode);
-  document.body.appendChild(editBtn);
-
-  // Load persisted data (skills, certifications, projects)
-  function loadPersistedData(){
+      function loadPersistedData(){
     // Skills
     const skillContainer = document.getElementById('skills-grid');
     const storedSkills = JSON.parse(localStorage.getItem('skills')||'[]');
