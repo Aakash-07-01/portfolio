@@ -384,7 +384,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     gap: 2rem;
   }
   .project-card {
-    background: rgba(255,255,255,0.05);
+    background: rgba(30,30,30,0.45);
     border-radius: 24px;
     overflow: hidden;
     position: relative;
@@ -392,19 +392,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 2px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.2));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-  .project-card:hover {
+    .project-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 30px rgba(0,0,0,0.3);
   }
