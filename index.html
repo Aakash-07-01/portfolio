@@ -641,8 +641,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
   <li><a href="#projects" onclick="closeNav()">Projects</a></li>
   <li><a href="#contact" onclick="closeNav()">Contact</a></li>
 </ul>
-      <button id="theme-toggle" class="btn btn-outline">Toggle Theme</button>
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -963,14 +962,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     }
   });
 
-  // ===== Theme Toggle =====
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-    });
-  }
-  // ===== Edit Mode (password protected) =====
+    // ===== Edit Mode (password protected) =====
   const editPassword = "AK45ak45";
   let editEnabled = false;
 
