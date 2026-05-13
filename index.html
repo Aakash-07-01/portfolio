@@ -384,14 +384,29 @@ nav > button#theme-toggle { margin-left: 1rem; }
     gap: 2rem;
   }
   .project-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255,255,255,0.05);
     border-radius: 24px;
     overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
   }
   .project-card:hover {
     border-color: rgba(255, 255, 255, 0.4);
@@ -400,7 +415,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
   }
   .project-image {
     height: 220px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.35);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -408,6 +423,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     justify-content: center;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
+    backdrop-filter: blur(8px);
   }
   .project-title-glow {
     font-size: 1.8rem;
@@ -743,8 +759,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
         <div class="project-image"><h3 class="project-title-glow">Gym Routine Manager</h3></div>
         <div class="project-info">
           <div class="project-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span></div>
-          <h3>Gym Routine Manager</h3>
-          <p>System to create and manage workout routines, tracking fitness progress and consistency over time.</p>
+                    <p>System to create and manage workout routines, tracking fitness progress and consistency over time.</p>
           <div class="project-links">
             <a href="#">Source &#8599;</a>
           </div>
@@ -754,8 +769,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
         <div class="project-image"><h3 class="project-title-glow">URL Shortener</h3></div>
         <div class="project-info">
           <div class="project-tags"><span class="tag">Flask</span><span class="tag">URL Shortener</span></div>
-          <h3>URL Shortener</h3>
-          <p>Web‑based URL shortener built with Flask, featuring database storage and efficient redirection.</p>
+                    <p>Web‑based URL shortener built with Flask, featuring database storage and efficient redirection.</p>
           <div class="project-links">
             <a href="#">Source &#8599;</a>
           </div>
