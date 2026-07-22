@@ -4,8 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aakash B | Portfolio</title>
+<meta name="description" content="Aakash B — CSE (AI &amp; ML) student skilled in Python, Java, Flask, and PostgreSQL. Building data-driven solutions.">
+<meta name="author" content="Aakash B">
+<meta property="og:title" content="Aakash B | Portfolio">
+<meta property="og:description" content="CSE student specialising in AI &amp; ML. Python, Flask, PostgreSQL.">
+<meta property="og:type" content="website">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -22,45 +27,17 @@
     --glow-secondary: rgba(6, 182, 212, 0.4);
   }
 
-/* Light theme */
-.light {
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --surface2: #e5e7eb;
-    --primary: #6366f1;
-    --secondary: #10b981;
-    --accent: #f97316;
-    --text: #111827;
-    --muted: #6b7280;
-    --glow-primary: rgba(99, 102, 241, 0.4);
-    --glow-secondary: rgba(16, 185, 129, 0.4);
-  }
 
-/* Light mode overrides */
-.light .nav-links a { color: var(--text); }
-.light .nav-links a:hover { color: var(--primary); }
-
-/* Edit mode styling */
-.edit-mode *[contenteditable] {
-  outline: 2px dashed var(--primary);
-  background: rgba(255,255,255,0.1);
-}
-.light .btn-outline { border-color: rgba(0,0,0,0.2); color: var(--text); }
-.light .btn-outline:hover { border-color: var(--primary); background: rgba(0,0,0,0.05); }
-.light .project-card, .light .skill-card, .light .stat-card { border-color: rgba(0,0,0,0.12); }
-/* Light mode project card refinements */
-.light .project-card { background: var(--surface); }
-.light .project-card:hover { border-color: rgba(0,0,0,0.3); box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-4px); }
-.light .project-card:hover, .light .skill-card:hover, .light .stat-card:hover { border-color: rgba(0,0,0,0.3); box-shadow: 0 0 30px rgba(0,0,0,0.1); }
 
 html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
     cursor: default;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* Canvas Background */
@@ -84,9 +61,7 @@ html { scroll-behavior: smooth; }
     align-items: center;
     transition: all 0.3s ease;
   }
-  /* Light mode nav */
-  .light nav { background: var(--surface); }
-  .light nav.scrolled { background: var(--surface2); }
+
   nav.scrolled {
     background: rgba(10, 10, 15, 0.85);
     backdrop-filter: blur(20px);
@@ -108,11 +83,13 @@ html { scroll-behavior: smooth; }
     justify-content: center;
     width: 100%;
   }
+  .nav-links li { list-style: none; }
   .nav-links a {
     color: var(--muted);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 500;
+    letter-spacing: 0.02em;
     transition: color 0.3s;
     position: relative;
   }
@@ -128,7 +105,6 @@ html { scroll-behavior: smooth; }
   .nav-links a:hover::after { width: 100%; }
 
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
-nav > button#theme-toggle { margin-left: 1rem; }
   .hamburger span {
     width: 28px; height: 2px;
     background: var(--text);
@@ -149,16 +125,19 @@ nav > button#theme-toggle { margin-left: 1rem; }
   .container { max-width: 1200px; margin: 0 auto; width: 100%; }
 
   /* Hero */
-  .hero { min-height: 100vh; align-items: flex-start; }
-  .hero-content { max-width: 800px; }
+  .hero { min-height: 100vh; align-items: center; }
+  .hero-content { max-width: 800px; text-align: center; margin: 0 auto; }
   .hero-greeting {
     font-family: 'JetBrains Mono', monospace;
     color: var(--primary);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    opacity: 0.85;
   }
   .hero h1 {
+    font-family: 'Outfit', sans-serif;
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     line-height: 1.05;
@@ -177,7 +156,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     line-height: 1.7;
     margin-bottom: 2.5rem;
   }
-  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .hero-social {
   display: flex;
   gap: 1rem;
@@ -236,12 +215,14 @@ nav > button#theme-toggle { margin-left: 1rem; }
   .section-label {
     font-family: 'JetBrains Mono', monospace;
     color: var(--primary);
-    font-size: 0.85rem;
-    letter-spacing: 3px;
+    font-size: 0.78rem;
+    letter-spacing: 4px;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
+    opacity: 0.8;
   }
   .section-title {
+    font-family: 'Outfit', sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     letter-spacing: -1px;
@@ -275,6 +256,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     transform: translateY(-4px);
   }
   .stat-number {
+    font-family: 'Outfit', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -311,10 +293,25 @@ nav > button#theme-toggle { margin-left: 1rem; }
   @keyframes orbSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
   /* Skills */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  .skills-marquee-wrapper {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 1rem 0;
+  }
+  .skills-marquee {
+    display: flex;
     gap: 1.5rem;
+    animation: scrollLeft 30s linear infinite;
+    min-width: max-content;
+  }
+  .skills-marquee:hover {
+    animation-play-state: paused;
+  }
+  @keyframes scrollLeft {
+    to { transform: translateX(calc(-50% - 0.75rem)); }
   }
   .skill-card {
     background: var(--surface);
@@ -325,6 +322,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    min-width: 180px;
   }
   .skill-card::before {
     content: '';
@@ -343,19 +341,6 @@ nav > button#theme-toggle { margin-left: 1rem; }
   }
   .skill-icon { font-size: 2.5rem; margin-bottom: 1rem; }
   .skill-name { font-weight: 600; font-size: 1rem; }
-  .skill-level {
-    margin-top: 0.75rem;
-    height: 3px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .skill-level-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    border-radius: 4px;
-    transition: width 1s ease;
-  }
 
 /* Certifications */
 .certifications-grid {
@@ -368,13 +353,23 @@ nav > button#theme-toggle { margin-left: 1rem; }
   background: var(--surface);
   border: 1px solid rgba(168, 85, 247, 0.08);
   border-radius: 12px;
-  padding: 1rem 1.2rem;
+  padding: 1.2rem 1.4rem;
   text-align: center;
   transition: all 0.3s ease;
 }
+.certification-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.certification-card p {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-family: 'JetBrains Mono', monospace;
+}
 .certification-card:hover {
-  border-color: rgba(0,0,0,0.3);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.08);
   transform: translateY(-4px);
 }
 
@@ -397,23 +392,50 @@ nav > button#theme-toggle { margin-left: 1rem; }
     transform: translateY(-8px);
     box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(168, 85, 247, 0.05);
   }
-  .project-image {
-    height: 220px;
-    background: var(--surface2);
-    position: relative;
+  /* Code editor preview panel */
+  .project-preview {
+    background: #0d1117;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.12);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
     overflow: hidden;
+    position: relative;
+  }
+  .editor-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 4rem;
+    padding: 0.8rem 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-  .project-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 50%;
-    background: linear-gradient(to top, var(--surface), transparent);
+  .editor-filename {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
   }
+  .editor-body {
+    padding: 1rem 1.2rem 1.4rem;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .cl { display: flex; gap: 0.8rem; }
+  .ln {
+    color: #3d444d;
+    user-select: none;
+    min-width: 1.2rem;
+    text-align: right;
+  }
+  .kw  { color: #ff7b72; }
+  .fn  { color: #d2a8ff; }
+  .str { color: #a5d6ff; }
+  .cm  { color: #8b949e; }
+  .pl  { color: #79c0ff; }
+  .indent { padding-left: 1.5rem; }
+  .code-text { color: #e6edf3; }
   .project-info { padding: 1.5rem 2rem 2rem; }
   .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
   .tag {
@@ -425,7 +447,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     color: var(--primary);
     border: 1px solid rgba(168, 85, 247, 0.15);
   }
-  .project-info h3 { font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 600; }
+  .project-info h3 { font-family: 'Outfit', sans-serif; font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 600; letter-spacing: -0.3px; }
   .project-info p { color: var(--muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.2rem; }
   .project-links { display: flex; gap: 1rem; }
   .project-links a {
@@ -478,6 +500,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     color: var(--muted);
     font-weight: 500;
     transition: color 0.3s;
+    pointer-events: none;
   }
   .input-group input:focus ~ label,
   .input-group textarea:focus ~ label { color: var(--primary); }
@@ -496,29 +519,25 @@ nav > button#theme-toggle { margin-left: 1rem; }
     display: flex;
     gap: 1.5rem;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1rem;
   }
   .social-links a {
-    color: var(--muted);
-    font-size: 1.3rem;
-    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s;
+    text-decoration: none;
   }
-  .social-links a:hover { color: var(--primary); transform: translateY(-2px); }
-
-/* Header social icons */
-.social-header {
-  display: flex;
-  gap: 1rem;
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-}
-.social-header a {
-  color: var(--muted);
-  font-size: 1.4rem;
-  transition: color 0.3s;
-}
-.social-header a:hover { color: var(--primary); transform: translateY(-2px); }
+  .social-links a img {
+    width: 26px;
+    height: 26px;
+    filter: invert(0.6) brightness(1.4);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .social-links a:hover img {
+    filter: invert(0.75) brightness(2) sepia(1) hue-rotate(240deg) saturate(5);
+    transform: translateY(-3px);
+  }
 
   /* Reveal animations */
   .reveal {
@@ -527,12 +546,6 @@ nav > button#theme-toggle { margin-left: 1rem; }
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Glitch text effect */
-  .glitch {
-    position: relative;
-    display: inline-block;
-  }
 
   /* Responsive */
   @media (max-width: 768px) {
@@ -558,75 +571,50 @@ nav > button#theme-toggle { margin-left: 1rem; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-stats { grid-template-columns: repeat(3, 1fr); }
     .about-visual { order: -1; }
     .orb { width: 220px; height: 220px; }
-    .cursor, .cursor-dot { display: none; }
   }
-/* Admin panel */
-#admin-panel {
-  display: none;
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: var(--surface);
-  border: 1px solid var(--muted);
-  border-radius: 8px;
-  padding: 0.5rem;
-  z-index: 1000;
+
+.text-pressure {
+  display: inline-block;
+  transition: font-weight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              letter-spacing 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              text-shadow 0.4s ease;
+  cursor: default;
 }
-#admin-panel button {
-  margin: 0.2rem;
-  font-size: 0.85rem;
-  padding: 0.3rem 0.5rem;
+.text-pressure:hover {
+  font-weight: 900;
+  letter-spacing: 2px;
+  transform: scale(1.03);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-.modal-content {
-  background: var(--surface);
-  padding: 1rem;
-  border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-}
-.modal-content h3 { margin-top:0; }
-.modal-content label { display:block; margin-top:0.5rem; }
-.modal-content input, .modal-content textarea {
-  width: 100%;
-  margin-top:0.2rem;
-  padding:0.4rem;
-  border:1px solid var(--muted);
-  border-radius:4px;
-  background: var(--bg);
-  color: var(--text);
-}
-.modal-content button { margin-top:0.8rem; }
+
 .hero-name {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: clamp(3rem, 9vw, 7rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  font-family: 'Outfit', sans-serif;
+  color: var(--text);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  margin: 0 auto 1rem auto;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  display: block;
+  white-space: nowrap;
   animation: namePulse 8s ease-in-out infinite;
 }
 .subheading {
-  font-size: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
   color: var(--muted);
+  font-weight: 400;
   margin-bottom: 2rem;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
 }
 @keyframes namePulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.02); }
 }
 </style>
 </head>
@@ -635,40 +623,38 @@ nav > button#theme-toggle { margin-left: 1rem; }
 <canvas id="particles"></canvas>
 
 <nav id="navbar">
-    <ul class="nav-links" id="navLinks">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#home" onclick="closeNav()">Home</a></li>
-  <li><a href="#about" onclick="closeNav()">About</a></li>
-  <li><a href="#skills" onclick="closeNav()">Skills</a></li>
-  <li><a href="#projects" onclick="closeNav()">Projects</a></li>
-  <li><a href="#contact" onclick="closeNav()">Contact</a></li>
-</ul>
-      <button id="theme-toggle" class="btn btn-outline">Toggle Theme</button>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+    <li><a href="#certifications" onclick="closeNav()">Certifications</a></li>
+    <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+    <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+  </ul>
+
   <div class="hamburger" id="hamburger" onclick="toggleNav()">
     <span></span><span></span><span></span>
   </div>
 </nav>
-  <a href="https://github.com/Aakash-07-01" title="GitHub" target="_blank">&#9906;</a>
-<div id="admin-panel">
-  <button id="add-skill" title="Add Skill">Add Skill</button>
-  <button id="add-cert" title="Add Certification">Add Cert</button>
-  <button id="add-project" title="Add Project">Add Project</button>
-  <button id="edit-about" title="Edit About">Edit About</button>
-</div>
 
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
-      <p class="hero-greeting">> Hello, I'm</p>
-      <h1 class="hero-name">Aakash B</h1>
-      <h2 class="subheading">CSE - AI &amp; ML Student</h2>
+      <p class="hero-greeting">&gt; Hello, I'm</p>
+      <h1 class="hero-name text-pressure">Aakash B</h1>
+      <h2 class="subheading">Final-year B.E. CSE (AI &amp; ML) &mdash; Rathinam Technical Campus</h2>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">View My Work &rarr;</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
-<a href="https://drive.google.com/file/d/1WTYXpv1P69PYyvwGM_w2i_-ZBXhXNqRP/view?usp=sharing" class="btn btn-outline" target="_blank">Resume</a>
+        <a href="https://drive.google.com/file/d/1WTYXpv1P69PYyvwGM_w2i_-ZBXhXNqRP/view?usp=sharing" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
       <div class="hero-social">
-        <a href="https://www.linkedin.com/in/aakash2608/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:24px;height:24px;"></a>
-        <a href="https://github.com/Aakash-07-01" target="_blank"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width:24px;height:24px;"></a>
+        <a href="https://www.linkedin.com/in/aakash2608/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:24px;height:24px;">
+        </a>
+        <a href="https://github.com/Aakash-07-01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:24px;height:24px;">
+        </a>
       </div>
     </div>
   </div>
@@ -682,9 +668,23 @@ nav > button#theme-toggle { margin-left: 1rem; }
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Computer Science (AIML) student with strong skills in Python, Java, and SQL, seeking an opportunity to apply analytical and problem‑solving abilities to develop efficient solutions and contribute to data‑driven decision making.</p>
-        <p>When I'm not coding, you'll find me exploring new design trends, contributing to open-source, or experimenting with creative technologies like WebGL and generative art.</p>
-              </div>
+        <p>Final-year B.E. CSE (AI/ML) student with strong fundamentals in Java, OOP, and data structures &amp; algorithms, and hands&#8209;on experience building full&#8209;stack applications with Python, Java and PostgreSQL. Seeking a Software Developer role to apply backend development and AI integration skills to real&#8209;world business problems.</p>
+        <p>Currently studying at Rathinam Technical Campus, Coimbatore. CGPA&nbsp;7.6. I enjoy building tools that solve real problems &mdash; from AI&#8209;powered fitness apps to automated data dashboards.</p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">7.6</div>
+            <div class="stat-label">CGPA</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+        </div>
+      </div>
       <div class="about-visual reveal">
         <div class="orb"></div>
       </div>
@@ -696,15 +696,31 @@ nav > button#theme-toggle { margin-left: 1rem; }
   <div class="container">
     <div class="section-header reveal">
       <p class="section-label">Skills</p>
-      <h2 class="section-title">Technologies I work with</h2>
+      <h2 class="section-title text-pressure">Technologies I work with</h2>
     </div>
-    <div class="skills-grid reveal" id="skills-grid">
-      <div class="skill-card"><div class="skill-icon">&#128187;</div><div class="skill-name">Java</div></div>
-      <div class="skill-card"><div class="skill-icon">&#128187;</div><div class="skill-name">Python</div></div>
-      <div class="skill-card"><div class="skill-icon">&#128203;</div><div class="skill-name">Data Structures &amp; Algorithms</div></div>
-      <div class="skill-card"><div class="skill-icon">&#128202;</div><div class="skill-name">PostgreSQL</div></div>
-      <div class="skill-card"><div class="skill-icon">&#128202;</div><div class="skill-name">Excel</div></div>
-      <div class="skill-card"><div class="skill-icon">&#128187;</div><div class="skill-name">C</div></div>
+    <div class="skills-marquee-wrapper reveal">
+      <div class="skills-marquee">
+        <!-- Set 1 -->
+        <div class="skill-card"><div class="skill-icon">&#9749;</div><div class="skill-name">Java</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128013;</div><div class="skill-name">Python</div></div>
+        <div class="skill-card"><div class="skill-icon">&#127760;</div><div class="skill-name">HTML / CSS</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128024;</div><div class="skill-name">PostgreSQL</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128268;</div><div class="skill-name">REST API</div></div>
+        <div class="skill-card"><div class="skill-icon">&#129520;</div><div class="skill-name">OOP</div></div>
+        <div class="skill-card"><div class="skill-icon">&#9881;&#65039;</div><div class="skill-name">Maven</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128049;</div><div class="skill-name">Git / GitHub</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128190;</div><div class="skill-name">JDBC</div></div>
+        <!-- Set 2 -->
+        <div class="skill-card"><div class="skill-icon">&#9749;</div><div class="skill-name">Java</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128013;</div><div class="skill-name">Python</div></div>
+        <div class="skill-card"><div class="skill-icon">&#127760;</div><div class="skill-name">HTML / CSS</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128024;</div><div class="skill-name">PostgreSQL</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128268;</div><div class="skill-name">REST API</div></div>
+        <div class="skill-card"><div class="skill-icon">&#129520;</div><div class="skill-name">OOP</div></div>
+        <div class="skill-card"><div class="skill-icon">&#9881;&#65039;</div><div class="skill-name">Maven</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128049;</div><div class="skill-name">Git / GitHub</div></div>
+        <div class="skill-card"><div class="skill-icon">&#128190;</div><div class="skill-name">JDBC</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -713,13 +729,14 @@ nav > button#theme-toggle { margin-left: 1rem; }
   <div class="container">
     <div class="section-header reveal">
       <p class="section-label">Certifications</p>
-      <h2 class="section-title">Relevant Certifications</h2>
+      <h2 class="section-title text-pressure">Relevant Certifications</h2>
     </div>
     <div class="certifications-grid" id="certifications-grid">
-        <div class="certification-card"><h3>EDA and Data Visualization Course in Data Science</h3><p>Scaler</p></div>
-        <div class="certification-card"><h3>Design Thinking for Innovation</h3><p>Coursera</p></div>
-        <div class="certification-card"><h3>Introduction to DataLab</h3><p>Datacamp</p></div>
-        <div class="certification-card"><h3>Oracle Certified Foundations Associate</h3><p>Oracle</p></div>
+      <div class="certification-card reveal"><h3>EDA and Data Visualization Course in Data Science</h3><p>Scaler &mdash; Oct 2025</p></div>
+      <div class="certification-card reveal"><h3>Oracle Certified AI Foundations Associate (OCI 2025)</h3><p>Oracle &mdash; Aug 2025</p></div>
+      <div class="certification-card reveal"><h3>Supervised Machine Learning Course</h3><p>Scaler &mdash; May 2026</p></div>
+      <div class="certification-card reveal"><h3>Data Analytics Workshop</h3><p>NIT Trichy &mdash; Sep 2025</p></div>
+    </div>
   </div>
 </section>
 
@@ -727,28 +744,56 @@ nav > button#theme-toggle { margin-left: 1rem; }
   <div class="container">
     <div class="section-header reveal">
       <p class="section-label">Projects</p>
-      <h2 class="section-title">Selected work</h2>
+      <h2 class="section-title text-pressure">Selected work</h2>
     </div>
     <div class="projects-grid" id="projects-grid">
       <div class="project-card reveal">
-        <div class="project-image" style="background:linear-gradient(135deg, #2a2a3e, #1a2b4e);">&#127947;</div>
+        <div class="project-preview">
+          <div class="editor-bar">
+            <span class="editor-filename">FitPulseController.java</span>
+          </div>
+          <div class="editor-body">
+            <div class="cl"><span class="ln">1</span><span><span class="fn">@RestController</span></span></div>
+            <div class="cl"><span class="ln">2</span><span><span class="fn">@RequestMapping</span>(<span class="str">&quot;/api/workouts&quot;</span>)</span></div>
+            <div class="cl"><span class="ln">3</span><span class="cm">// JWT-secured &mdash; Spring Boot + PostgreSQL</span></div>
+            <div class="cl"><span class="ln">4</span><span></span></div>
+            <div class="cl"><span class="ln">5</span><span><span class="fn">@GetMapping</span>(<span class="str">&quot;/history&quot;</span>)</span></div>
+            <div class="cl"><span class="ln">6</span><span><span class="kw">public</span> List&lt;<span class="pl">Workout</span>&gt; <span class="fn">getHistory</span>(<span class="fn">@AuthUser</span> User u) {</span></div>
+            <div class="cl indent"><span class="ln">7</span><span><span class="kw">return</span> <span class="fn">workoutRepo</span>.<span class="fn">findByUser</span>(u);</span></div>
+            <div class="cl"><span class="ln">8</span><span>}</span></div>
+          </div>
+        </div>
         <div class="project-info">
-          <div class="project-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span></div>
-          <h3>Gym Routine Manager</h3>
-          <p>System to create and manage workout routines, tracking fitness progress and consistency over time.</p>
+          <div class="project-tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Gemini API</span></div>
+          <h3 class="text-pressure">FitPulse AI</h3>
+          <p>Full-stack fitness tracking platform on Render. Spring Boot/Java backend with JWT auth, PostgreSQL, and an AI agent powered by Gemini API that answers queries grounded strictly in the user's own workout history.</p>
           <div class="project-links">
-            <a href="#">Source &#8599;</a>
+            <a href="https://github.com/Aakash-07-01" target="_blank" rel="noopener noreferrer">View on GitHub &#8599;</a>
           </div>
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-image" style="background:linear-gradient(135deg, #1e1e30, #2b1f3a);">&#128279;</div>
+        <div class="project-preview">
+          <div class="editor-bar">
+            <span class="editor-filename">analytics_dashboard.py</span>
+          </div>
+          <div class="editor-body">
+            <div class="cl"><span class="ln">1</span><span><span class="kw">import</span> <span class="pl">pandas</span> <span class="kw">as</span> pd</span></div>
+            <div class="cl"><span class="ln">2</span><span><span class="kw">import</span> <span class="pl">plotly.express</span> <span class="kw">as</span> px</span></div>
+            <div class="cl"><span class="ln">3</span><span class="cm"># Auto-generates HTML dashboard from CSV</span></div>
+            <div class="cl"><span class="ln">4</span><span></span></div>
+            <div class="cl"><span class="ln">5</span><span>df = pd.<span class="fn">read_csv</span>(<span class="str">&apos;data.csv&apos;</span>)</span></div>
+            <div class="cl"><span class="ln">6</span><span>fig = px.<span class="fn">scatter_matrix</span>(df)</span></div>
+            <div class="cl"><span class="ln">7</span><span>fig.<span class="fn">write_html</span>(<span class="str">&apos;dashboard.html&apos;</span>)</span></div>
+            <div class="cl"><span class="ln">8</span><span class="cm"># 2 hrs &rarr; 5 min &mdash; Plotly + Pandas</span></div>
+          </div>
+        </div>
         <div class="project-info">
-          <div class="project-tags"><span class="tag">Flask</span><span class="tag">URL Shortener</span></div>
-          <h3>URL Shortener</h3>
-          <p>Web‑based URL shortener built with Flask, featuring database storage and efficient redirection.</p>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Plotly</span><span class="tag">HTML</span></div>
+          <h3 class="text-pressure">Automated CSV Analytics Dashboard</h3>
+          <p>Python tool that auto-generates interactive HTML dashboards from any CSV file &mdash; trend charts, correlation heatmaps, summary stats. Reduced manual analysis time from 2&nbsp;hours to under 5&nbsp;minutes.</p>
           <div class="project-links">
-            <a href="#">Source &#8599;</a>
+            <a href="https://github.com/Aakash-07-01" target="_blank" rel="noopener noreferrer">View on GitHub &#8599;</a>
           </div>
         </div>
       </div>
@@ -765,24 +810,26 @@ nav > button#theme-toggle { margin-left: 1rem; }
     <div class="contact-grid">
       <div class="reveal">
         <p style="color:var(--muted);line-height:1.8;font-size:1.05rem;margin-bottom:2rem;">
-          Have a project in mind? I'd love to hear about it. Whether it's a web app, a creative experiment, or something entirely new — let's talk.
+          Have a project in mind? I'd love to hear about it. Whether it's a web app, a creative experiment, or something entirely new &mdash; let's talk.
         </p>
-        <div class="social-links" style="justify-content:flex-start;">
-          <a href="#" title="GitHub">&#9906;</a>
-          <a href="#" title="LinkedIn">&#9679;</a>
-          <a href="#" title="Twitter/X">&#9854;</a>
-          <a href="#" title="Email">&#9993;</a>
+        <div class="social-links" style="justify-content:flex-start;gap:1.2rem;">
+          <a href="https://github.com/Aakash-07-01" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" width="26" height="26">
+          </a>
+          <a href="https://www.linkedin.com/in/aakash2608/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="26" height="26">
+          </a>
         </div>
       </div>
       <form class="contact-form reveal" action="https://formspree.io/f/mvzllvzn" method="POST" onsubmit="handleSubmit(event)">
         <div class="input-group">
-          <input type="text" id="name" name="name" required placeholder="Your name">
+          <input type="text" id="name" name="name" required placeholder="Your Name">
         </div>
         <div class="input-group">
-          <input type="email" id="email" name="email" required placeholder="Your email">
+          <input type="email" id="email" name="email" required placeholder="Email Address">
         </div>
         <div class="input-group">
-          <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+          <textarea id="message" name="message" required placeholder="Your Message"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message &#8594;</button>
       </form>
@@ -791,7 +838,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
 </section>
 
 <footer>
-  <p>&copy; 2026 Nova. Designed & built with passion.</p>
+  <p>&copy; 2026 Aakash B. Designed &amp; built with passion.</p>
 </footer>
 
 <script>
@@ -853,11 +900,14 @@ nav > button#theme-toggle { margin-left: 1rem; }
   }
 
   function initParticles() {
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 9000), 200);
+    // Cap at 600 particles for performance
+    const count = Math.min(Math.floor((canvas.width * canvas.height) / 2500), 600);
     particles = Array.from({ length: count }, () => new Particle());
   }
 
   function connectParticles() {
+    // Skip on mobile for performance
+    if (window.innerWidth < 768) return;
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         let dx = particles[i].x - particles[j].x;
@@ -908,10 +958,6 @@ nav > button#theme-toggle { margin-left: 1rem; }
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Animate skill bars
-        entry.target.querySelectorAll('.skill-level-fill').forEach(bar => {
-          bar.style.width = bar.dataset.width;
-        });
       }
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
@@ -922,13 +968,15 @@ nav > button#theme-toggle { margin-left: 1rem; }
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const btn = form.querySelector('button');
+    const btn = form.querySelector('button[type="submit"]');
     const orig = btn.textContent;
     const data = {
       name: form.querySelector('#name').value,
       email: form.querySelector('#email').value,
       message: form.querySelector('#message').value
     };
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
     // Send JSON to Formspree
     fetch(form.action, {
       method: 'POST',
@@ -947,13 +995,14 @@ nav > button#theme-toggle { margin-left: 1rem; }
       btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
     })
     .catch(() => {
-      btn.textContent = 'Error!';
+      btn.textContent = 'Something went wrong';
       btn.style.background = 'linear-gradient(135deg, #dc2626, #b91c1c)';
     })
     .finally(() => {
       setTimeout(() => {
         btn.textContent = orig;
         btn.style.background = '';
+        btn.disabled = false;
         form.reset();
       }, 2500);
     });
@@ -970,101 +1019,7 @@ nav > button#theme-toggle { margin-left: 1rem; }
     }
   });
 
-  // ===== Theme Toggle =====
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-    });
-  }
-// ===== Edit Mode (password protected) =====
-const editPassword = "AK45ak45";
-let editEnabled = false;
 
-function toggleEditMode() {
-  if (!editEnabled) {
-    const pw = prompt("Enter edit password:");
-    if (pw !== editPassword) {
-      alert("Incorrect password.");
-      return;
-    }
-    editEnabled = true;
-    document.body.classList.add('edit-mode');
-    // Show admin panel
-    const adminPanel = document.getElementById('admin-panel');
-    if (adminPanel) adminPanel.style.display = 'flex';
-    // Make sections editable (for quick edits)
-    const sections = document.querySelectorAll('#about .about-text, #skills, #certifications, #projects, #contact .contact-grid');
-    sections.forEach(el => el.setAttribute('contenteditable', 'true'));
-    alert('Edit mode enabled. Use the admin tools to add items.');
-  } else {
-    editEnabled = false;
-    document.body.classList.remove('edit-mode');
-    const adminPanel = document.getElementById('admin-panel');
-    if (adminPanel) adminPanel.style.display = 'none';
-    const editableEls = document.querySelectorAll('[contenteditable]');
-    editableEls.forEach(el => el.removeAttribute('contenteditable'));
-    alert('Edit mode disabled.');
-  }
-}
-
-// Hidden edit button
-const editBtn = document.createElement('button');
-editBtn.id = 'edit-toggle';
-editBtn.textContent = '✎';
-editBtn.title = 'Edit Portfolio';
-editBtn.style.position = 'fixed';
-editBtn.style.bottom = '1rem';
-editBtn.style.right = '1rem';
-editBtn.style.opacity = '0.2';
-editBtn.style.zIndex = '1000';
-editBtn.style.cursor = 'pointer';
-editBtn.style.background = 'var(--surface)';
-editBtn.style.border = '1px solid var(--muted)';
-editBtn.style.borderRadius = '6px';
-editBtn.style.padding = '0.3rem 0.5rem';
-editBtn.addEventListener('click', toggleEditMode);
-document.body.appendChild(editBtn);
-
-// Load persisted data (skills, certifications, projects)
-function loadPersistedData(){
-  // Skills
-  const skillContainer = document.getElementById('skills-grid');
-  const storedSkills = JSON.parse(localStorage.getItem('skills')||'[]');
-  storedSkills.forEach(s=>{
-    const card = document.createElement('div');
-    card.className = 'skill-card';
-    card.innerHTML = `<div class="skill-icon">${s.icon||'&#128187;'}</div><div class="skill-name">${s.name}</div>`;
-    skillContainer.appendChild(card);
-  });
-  // Certifications
-  const certContainer = document.getElementById('certifications-grid');
-  const storedCerts = JSON.parse(localStorage.getItem('certifications')||'[]');
-  storedCerts.forEach(text=>{
-    const div = document.createElement('div');
-    div.className = 'certification-card';
-    div.textContent = text;
-    certContainer.appendChild(div);
-  });
-  // Projects
-  const projContainer = document.getElementById('projects-grid');
-  const storedProjects = JSON.parse(localStorage.getItem('projects')||'[]');
-  storedProjects.forEach(p=>{
-    const card = document.createElement('div');
-    card.className = 'project-card reveal';
-    const tagsHtml = p.tags.split(',').map(t=>`<span class="tag">${t.trim()}</span>`).join('');
-    card.innerHTML = `
-      <div class="project-image" style="background:linear-gradient(135deg, #2a2a3e, #1a2b4e);">${p.img||'&#127947;'}</div>
-      <div class="project-info">
-        <div class="project-tags">${tagsHtml}</div>
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <div class="project-links"><a href="#">Source &#8599;</a></div>
-      </div>`;
-    projContainer.appendChild(card);
-  });
-}
-document.addEventListener('DOMContentLoaded', loadPersistedData);
 </script>
 
 </body>
